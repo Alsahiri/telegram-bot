@@ -1,7 +1,11 @@
 -- liquibase formatted sql
 
--- changeset ysudarkin:1
---create index student_name_index on students(name);
+-- changeset ysudarkin:create_notification_tasks
+CREATE TABLE notification_tasks
+(
+    id SERIAL,
+    message TEXT NOT NULL,
+    chat_id BIGINT NOT NULL,
+    notification_data_time TIMESTAMP NOT NULL
+);
 
--- changeset ysudarkin:2
---create index faculty_name_color_index on faculties(name, color);
