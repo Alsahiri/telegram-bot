@@ -26,11 +26,11 @@ public class NotificationTask {
     private String message;
 
     @Column(name = "notification_data_time", nullable = false)
-    private LocalDateTime notificationDataTime;
+    private LocalDateTime notificationDateTime;
 
     public NotificationTask(long chatId, String message, LocalDateTime notificationDataTime) {
         this.chatId = chatId;
         this.message = message;
-        this.notificationDataTime = notificationDataTime;
+        this.notificationDateTime = notificationDataTime;
     }
 }

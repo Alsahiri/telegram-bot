@@ -34,10 +34,10 @@ public class NotificationTaskScheduler {
     public void sendTaskNotification() {
         LocalDateTime dateTimeToFindTasks = LocalDateTime.now().truncatedTo(ChronoUnit.MINUTES);
         logger.info("Task scheduler started, {}", dateTimeToFindTasks);
-        notificationTaskService.findAllByNotificationDateTime(dateTimeToFindTasks).forEach(this::sendTaskNotification);
+        notificationTaskService.findAllByNotificationDateTime(dateTimeToFindTasks).forEach(this::sendNotification);
     }
 
-    private void sendTaskNotification(NotificationTask notificationTask) {
+    private void sendNotification(NotificationTask notificationTask) {
         SendResponse response =
         telegramBot.execute(new SendMessage(notificationTask.getChatId(), notificationTask.getMessage()));
         if (response.isOk()) {
